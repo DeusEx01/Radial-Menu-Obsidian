@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ion-icon {
+  color: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #8460ed, #ff1252);
+}
+
+.menu {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.menu li,
+.corner {
+  position: absolute;
+  left: 0;
+  list-style: none;
+  transform-origin: 100px;
+  transform: rotate(calc(360deg / 8 * var(--i)));
+  clip-path: polygon(0 0, 100% 35%, 100% 65%, 0% 100%);
+}
+
+.menu li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 80px;
+  background-color: black;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+
+.menu li a:hover,
+.toggle:hover {
+  opacity: 1;
+}
+
+.toggle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: black;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2em;
+  transition: 0.5s;
+}
+
+.toggle::before {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 70px;
+  z-index: 10000;
+  overflow: hidden;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.menu.active .toggle {
+  transform: rotate(315deg);
+}
