@@ -6,6 +6,8 @@
 
 ion-icon {
   color: white;
+  transform: rotate(calc(-360deg / 8 * var(--i)));
+  display: inline-block;
 }
 
 body {
@@ -25,6 +27,7 @@ body {
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
+  transform: scale(2)
 }
 
 .menu li,
@@ -69,18 +72,19 @@ body {
   font-size: 2em;
   transition: 0.5s;
 }
-
-.toggle::before {
+/*Rounding element for middle menu button. Probably is needed in changing approach for 'background' since we'll have random backgrounds we can't predict!!!*/
+.toggle-hidden {
   content: '';
   display: block;
-  width: 70px;
-  height: 70px;
+  width: 64px; /*Keep this value even due to a random rounding*/
+  height: 64px; /*Keep this value even due to a random rounding*/
   z-index: 10000;
   overflow: hidden;
   position: absolute;
+  margin: 0 auto;
   border-radius: 50%;
-}
-
-.menu.active .toggle {
-  transform: rotate(315deg);
+  background: linear-gradient(45deg, #8460ed, #ff1252);  /*For better compability with background we need to tweak this value*/
+  background-size: 200% 200%; 
+  background-position: calc(50% - 60px/2) calc(50% - 65px/2);
+  /*For better compability with background we need to tweak this value*/
 }
