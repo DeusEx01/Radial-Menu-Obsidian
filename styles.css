@@ -3,11 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+}
 
-ion-icon {
+.menu span {
   color: white;
   transform: rotate(calc(-360deg / 8 * var(--i)));
   display: inline-block;
+  transition:  0.5s;
+}
+.menu li a:hover span {
+
+  text-shadow:
+  0 0 0.2px #fff,
+  0 0 0.2rem #fff,
+  0 0 2.5rem #d400ff,
+  0 0 5rem #d400ff,
+  0 0 5.5rem #d400ff,
+  0 0 6rem #d400ff;
+  transition:  0.3s;
 }
 
 body {
@@ -27,7 +42,7 @@ body {
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  transform: scale(2)
+  transform: scale(2);
 }
 
 .menu li,
@@ -49,6 +64,9 @@ body {
   background-color: black;
   opacity: 0.6;
   transition: 0.3s;
+
+  filter: drop-shadow(0 0 8px red);
+  text-shadow: 0 0 0 1rem #ff1252;
 }
 
 
@@ -56,6 +74,7 @@ body {
 .toggle:hover {
   opacity: 1;
 }
+
 
 .toggle {
   position: absolute;
