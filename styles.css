@@ -7,34 +7,26 @@ a {
   text-decoration: none;
 }
 
-.menu span {
+.radial_menu a {
   color: white;
   transform: rotate(calc(-360deg / 8 * var(--i)));
   display: inline-block;
   transition:  0.5s;
 }
-.menu li a:hover span {
+.radial_menu li a:hover span {
 
   text-shadow:
   0 0 0.2px #fff,
-  0 0 0.2rem #fff,
-  0 0 2.5rem #d400ff,
-  0 0 5rem #d400ff,
-  0 0 5.5rem #d400ff,
-  0 0 6rem #d400ff;
+  0 0 0.2rem #fff;
   transition:  0.3s;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(45deg, #8460ed, #ff1252);
-}
 
-.menu {
-  position: relative;
+
+.radial_menu {
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
   width: 200px;
   height: 200px;
   display: flex;
@@ -42,10 +34,13 @@ body {
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  transform: scale(2);
+  transform: scale(2.5);
+}
+.radial_menu_hidden {
+  display: none;
 }
 
-.menu li,
+.radial_menu li,
 .corner {
   position: absolute;
   left: 0;
@@ -55,25 +50,35 @@ body {
   clip-path: polygon(0 0, 100% 35%, 100% 65%, 0% 100%);
 }
 
-.menu li a {
+.radial_menu li {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 70px;
   height: 80px;
   background-color: black;
-  opacity: 0.6;
-  transition: 0.3s;
-
-  filter: drop-shadow(0 0 8px red);
-  text-shadow: 0 0 0 1rem #ff1252;
+  opacity: 0.7;
+  transition: 0.2s;
+  text-decoration: none;
+}
+.radial_menu li a {
+  width: 70%;
+  height: 70%;
+  display: flex;
 }
 
-
-.menu li a:hover,
+/* .radial_menu li a:hover,
 .toggle:hover {
   opacity: 1;
+  text-decoration: none;
+} */
+.radial_menu li:hover {
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
 }
+
 
 
 .toggle {
@@ -81,7 +86,7 @@ body {
   width: 60px;
   height: 60px;
   background: black;
-  opacity: 0.6;
+  opacity: 0.7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,19 +96,25 @@ body {
   font-size: 2em;
   transition: 0.5s;
 }
-/*Rounding element for middle menu button. Probably is needed in changing approach for 'background' since we'll have random backgrounds we can't predict!!!*/
+/*Rounding element for middle radial_menu button. Probably is needed in changing approach for 'background' since we'll have random backgrounds we can't predict!!!*/
 .toggle-hidden {
   content: '';
   display: block;
   width: 64px; /*Keep this value even due to a random rounding*/
   height: 64px; /*Keep this value even due to a random rounding*/
-  z-index: 10000;
+  z-index: 9000;
   overflow: hidden;
   position: absolute;
   margin: 0 auto;
   border-radius: 50%;
-  background: linear-gradient(45deg, #8460ed, #ff1252);  /*For better compability with background we need to tweak this value*/
-  background-size: 200% 200%; 
-  background-position: calc(50% - 60px/2) calc(50% - 65px/2);
-  /*For better compability with background we need to tweak this value*/
+  background-color: white;  
+}
+.toggle, .radial-button, .li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.radial_description {
+  font-size: 5px;
 }
