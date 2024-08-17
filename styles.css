@@ -12,13 +12,23 @@ body {
   background: linear-gradient(90deg, red, purple);
 }
 
-.container {
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-/*   background: lightgreen; */
+.radial_container {
+  width: 400px;
+  height: 400px;
+  position: fixed;
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  
+  z-index: 99999;
+  background-color: #000;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid grey;
 }
-.menu {
+.radial_menu {
   position: relative;
   margin: 0;
   padding: 0;
@@ -28,52 +38,62 @@ body {
   /* padding trick for maintaining aspect ratio */
   height: 0;
   padding: 0;
-  padding-top: 99%;
-  width: 99%;
+  padding-top: 99.9%;
+  width: 99.9%;
   
 /*   background: green; */
 }
 
-.menu li { 
+.radial_menu li { 
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #000;
   clip-path: url(#sector);
+  opacity: 1;
 }
-
-.menu li a {
+.radial_menu li:nth-child(odd) {
+  background-color: #050505;
+}
+.radial_menu li a {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.menu li:hover {
-  transition: .5s;
-  opacity: 0.7;
+.radial_menu li:hover  {
+  transition: .2s;
+  background-color: #302f2fe9;
+  opacity: 1;
 }
+
 
 
 .material-symbols-outlined {
   position: absolute;
   /* exact values here depend on what you are placing inside the items (icon, image, text, etc.) */
-  left: 75% !important;
-  top: 33% !important;
+  left: 77% !important;
+  top: 34% !important;
   color: white !important;
-  font-size: 56px !important;
+  font-size: 45px !important;
 }
 
 
 
-/* .middle {
-  position: absolute;
+.radial_menu_description {
   z-index: 99999;
-  top: calc(250px - 50px);
-  left: calc(250px - 50px);
+  position: absolute;
+  top: 150px;
+  bottom: 150px;
   width: 100px;
   height: 100px;
   background-color: black;
   border-radius: 50%;
-} */
+  border: 1px solid grey;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
