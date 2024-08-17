@@ -15,5 +15,10 @@ V 4.0
 
 ![6 demo](https://github.com/user-attachments/assets/33f53f4f-d5d2-4001-960b-c5baec60b4dc)
 
+V 5.0
+
+![demo](https://github.com/user-attachments/assets/5f8461cd-ddc3-472f-a4e2-c70f0ba8f3f2)
+
+
 # TODO
 - [ ] Delete selection event default behavior for buttons (watch v3.0
